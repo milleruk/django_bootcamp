@@ -1,6 +1,11 @@
 from django.urls import path, re_path
 from django.contrib import admin
 
+from accounts.views import (
+    login_view,
+    logout_view,
+    register_view
+)
 from products.views import (
     #bad_view,
     search_view,
@@ -12,6 +17,9 @@ from products.views import (
 
 urlpatterns = [
     #path('bad-view-dont-use/', bad_view),
+    path('login/', login_view),
+    path('logout/', logout_view),
+    path('register/', register_view),
     path('search/', search_view),
     path('products/', product_list_view),
     path('products/create/', product_create_view),
