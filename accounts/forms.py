@@ -48,8 +48,6 @@ class RegisterForm(forms.Form):
                 "Already in use")
         return email
 
-
-
 class LoginForm(forms.Form):
     username = forms.CharField()
     password = forms.CharField(
