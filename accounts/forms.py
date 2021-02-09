@@ -29,6 +29,11 @@ class RegisterForm(forms.Form):
         )
     )
 
+    # def clean(self):
+    #     data = super().clean()
+    #     username = data.get("username")
+    #     password = data.get("password")
+
     def clean_username(self):
         username = self.cleaned_data.get("username")
         qs = User.objects.filter(username__iexact=username)  # thisIsMyUsername == thisismyusername
@@ -47,7 +52,6 @@ class RegisterForm(forms.Form):
             raise forms.ValidationError(
                 "Already in use")
         return email
-
 class LoginForm(forms.Form):
     username = forms.CharField()
     password = forms.CharField(
